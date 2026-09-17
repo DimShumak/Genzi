@@ -1,0 +1,8 @@
+{
+    "require": {
+        "chrisullyott/php-ssl-monitor": "^0.0.5",
+        "mobiledetect/mobiledetectlib": "^4.8",
+         "chrisullyott/php-ssl-monitor": "^0.0.5",
+        "io-developer/php-whois": "^4.1"
+    }
+}

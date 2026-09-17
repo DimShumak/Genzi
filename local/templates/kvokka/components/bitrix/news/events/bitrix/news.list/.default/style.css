@@ -1,0 +1,184 @@
+/* Основной стиль для контейнера фото - соотношение 600×400 (3:2) */
+.events__img-holder {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3/2; /* 600/400 = 1.5 = 3/2 */
+  background-color: var(--color-grey-10); /* Фон на время загрузки */
+}
+
+/* Убираем старые стили с фиксированной высотой */
+.events__img-holder:not(.aspect-ratio) {
+  height: auto;
+}
+
+/* Для картиночной обертки */
+.events__img-holder picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Для самого изображения */
+.events__img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* или contain, если нужно без обрезки */
+  object-position: center;
+  display: block;
+  
+  /* Плавное появление при загрузке */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Когда изображение загружено (браузер автоматически применяет стили) */
+.events__img-holder img:not([src=""]) {
+  opacity: 1;
+}
+
+/* Альтернатива: использовать background-image для плавной загрузки */
+.events__img-holder.with-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
+}
+
+/* Для сетки событий */
+.events__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 24px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1150px) {
+  .events__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+  }
+  
+  .events__img-holder {
+    aspect-ratio: 3/2; /* Сохраняем пропорции */
+  }
+}
+
+@media (max-width: 767px) {
+  .events__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .events__img-holder {
+    aspect-ratio: 3/2; /* И на мобильных сохраняем пропорции */
+  }
+}
+
+/* Блок с событием */
+.events__block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.events__content-holder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Дополнительно: если нужен placeholder перед загрузкой */
+.events__img-holder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--color-grey-10) 0%, 
+    var(--color-grey-20) 50%, 
+    var(--color-grey-10) 100%);
+  background-size: 200% 100%;
+  animation: loading-placeholder 1.5s infinite ease-in-out;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.events__img-holder img:not([src=""]) ~ ::before {
+  opacity: 0;
+  animation: none;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes loading-placeholder {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Для других блоков с изображениями (news, sections и т.д.) */
+.news__img-holder,
+.sections__img-holder,
+.locations__img-holder,
+.shops__img-holder {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+  background-color: var(--color-grey-10);
+}
+
+.news__img-holder img,
+.sections__img-holder img,
+.locations__img-holder img,
+.shops__img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.news__img-holder img:not([src=""]),
+.sections__img-holder img:not([src=""]),
+.locations__img-holder img:not([src=""]),
+.shops__img-holder img:not([src=""]) {
+  opacity: 1;
+}
+
+/* Для travel блока (если там другие пропорции) */
+.travel__img-holder {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16/9; /* Более широкий формат для travel */
+  background-color: var(--color-grey-10);
+}
+
+.travel__img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.travel__img-holder img:not([src=""]) {
+  opacity: 1;
+}
+.events__calendar-card--available:hover {
+  background-color: #50c06d;
+  color: white;
+  cursor: pointer;
+}

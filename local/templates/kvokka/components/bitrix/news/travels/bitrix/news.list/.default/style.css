@@ -1,0 +1,148 @@
+/* Для блока путешествий - соотношение 3:2 (600x400) */
+.travels__swiper-img-holder {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3/2; /* Соотношение 600:400 = 3:2 */
+  background-color: var(--color-grey-10); /* Фон на время загрузки */
+}
+
+/* Убираем старые стили с фиксированной высотой */
+.travels__swiper-img-holder:not(.aspect-ratio) {
+  height: auto;
+}
+
+/* Для картиночной обертки */
+.travels__swiper-img-holder picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Для самого изображения */
+.travels__swiper-img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Для путешествий лучше cover */
+  object-position: center;
+  display: block;
+  
+  /* Плавное появление при загрузке */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Когда изображение загружено */
+.travels__swiper-img-holder img:not([src=""]) {
+  opacity: 1;
+}
+
+/* Placeholder для загрузки */
+.travels__swiper-img-holder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--color-grey-10) 0%, 
+    var(--color-grey-20) 50%, 
+    var(--color-grey-10) 100%);
+  background-size: 200% 100%;
+  animation: loading-placeholder 1.5s infinite ease-in-out;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.travels__swiper-img-holder img:not([src=""]) ~ ::before {
+  opacity: 0;
+  animation: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Анимация placeholder */
+@keyframes loading-placeholder {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Блок иконки сложности */
+.travels__slide-icon-holder {
+  padding: 6px;
+  background-color: var(--color-grey-30);
+  border-radius: 4px;
+  width: 32px; /* Фиксируем ширину */
+  height: 32px; /* Фиксируем высоту */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travels__slide-icon {
+  height: 12px;
+  width: auto;
+  display: block;
+}
+
+/* Сетка для путешествий */
+.events__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 24px;
+}
+
+/* Блок с путешествием */
+.travels__swiper-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.travels__slide-content-holder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1150px) {
+  .events__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+  }
+  
+  .travels__swiper-img-holder {
+    aspect-ratio: 3/2; /* Сохраняем пропорции */
+  }
+}
+
+@media (max-width: 767px) {
+  .events__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .travels__swiper-img-holder {
+    aspect-ratio: 3/2; /* И на мобильных сохраняем пропорции */
+  }
+}
+
+/* Для иконки внутри picture */
+.travels__slide-icon-holder picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travels__slide-icon-holder img {
+  max-width: 100%;
+  max-height: 100%;
+}

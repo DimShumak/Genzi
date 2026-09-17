@@ -1,0 +1,52 @@
+# Секреты и локальные настройки
+.env
+.env.*
+!.env.example
+
+# Ядро и временные файлы Битрикса
+/bitrix/
+/upload/
+/local/cache/
+/local/managed_cache/
+/local/stack_cache/
+/local/tmp/
+
+# Зависимости
+/vendor/
+/local/vendor/
+**/vendor/
+/node_modules/
+**/node_modules/
+/yarn/
+
+# Резервные копии и дампы базы
+*.sql
+*.sql.gz
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+/restore.php
+/bitrixsetup.php
+/bitrixsetup*.php
+
+# Журналы
+*.log
+/logs/
+
+# Настройки редакторов
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Сгенерированная карта сайта
+/sitemap*.xml
+
+# Настройки Open Server
+/.osp/

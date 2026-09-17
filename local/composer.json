@@ -1,0 +1,19 @@
+{
+    "require": {
+        "andreyryabin/sprint.migration": "dev-master"
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "modules/{$name}/": [
+                "type:bitrix-module",
+                "type:bitrix-d7-module"
+            ]
+        }
+    }
+}

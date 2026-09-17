@@ -1,0 +1,73 @@
+.event__image-block-holder {
+  height: 650px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event__image-block {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;    
+  overflow: hidden;     
+  position: relative;
+}.event__image-block-holder {
+  height: 650px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* УБРАТЬ: border-radius: 8px; */
+  /* УБРАТЬ: overflow: hidden; */
+}
+
+.event__image-block {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;     
+  overflow: hidden;       
+  position: relative;
+  background-color: var(--color-grey-10);
+}
+
+.event__image-block > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.event__image-container-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   
+  object-position: center;
+  display: block;
+}
+
+.event__image-block > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.event__image-container-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  object-position: center;
+  display: block;
+}
+.event__contact-phone-holder {
+  white-space: nowrap;     
+  display: inline-flex;   
+  flex-wrap: nowrap;      
+  align-items: center;
+}
+.event__contacts-holder {
+    justify-content: flex-end;
+    flex: 2;
+    margin-left: 20px;
+    width: 100%;
+}
