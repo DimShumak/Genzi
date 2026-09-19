@@ -58,6 +58,7 @@ $bodyClass = Storage::get('IS_HOME') ? 'home' : 'no-home';
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <head>
+	<link rel="shortcut icon" href="/favicon.ico"/>
   <meta charset="<?= SITE_CHARSET ?>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
